@@ -9,7 +9,7 @@
   <arg name="launch_theta" default="false"/>
 
   <!-- Set true to use imu -->
-  <arg name="launch_imu" default="true"/>
+  <arg name="launch_imu" default="false"/>
 
   <!-- Set true to publish odom tf -->
   <arg name="publish_odom_tf" default="true"/>

@@ -1,0 +1,20 @@
+
+<launch>
+  <arg name="launch_rviz" default="true"/>
+  <arg name="with_camera" default="false"/>
+
+  <node if="$(arg with_camera)" name="image_transport" pkg="image_transport" type="republish" args="compressed in:=/raspicam_node/image raw out:=/camera/image_raw"/>
+
+  <!-- Start gmapping -->
+  <node name="gmapping" pkg="gmapping" type="slam_gmapping"/>
+
+  <!-- AMCL -->
+  <include file="$(find roomblock_navigation)/launch/include/laser_amcl.launch.xml"/>
+
+  <!-- Move base -->
+  <include file="$(find roomblock_navigation)/launch/include/move_base.launch.xml"/>
+
+  <!-- Rviz -->
+  <include if="$(arg launch_rviz)" file="$(find roomblock_navigation)/launch/rviz.launch"/>
+
+</launch>

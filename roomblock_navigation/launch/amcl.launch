@@ -1,7 +1,7 @@
 <launch>
   <arg name="map_file" default="map.yaml"/>
   <arg name="launch_rviz" default="true"/>
-  <arg name="with_camera" default="true"/>
+  <arg name="with_camera" default="false"/>
 
   <!-- Map server -->
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
